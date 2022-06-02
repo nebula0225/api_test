@@ -1,2 +1,4 @@
 # api_test
-api 통신 테스트
+
+DB 없이 간단한 api 통신 테스트
+
