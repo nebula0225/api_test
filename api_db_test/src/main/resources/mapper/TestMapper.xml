@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.api_db_test.mapper.TestMapper">
+
+	<select id="get_list" resultType="com.example.api_db_test.dto.TestDto">
+		SELECT * FROM user_info
+	</select>
+	
+	<select id="get_one" resultType="com.example.api_db_test.dto.TestDto" parameterType="String">
+		SELECT * FROM user_info WHERE name = #{name}
+	</select>
+	
+	<select id="get_two" resultType="com.example.api_db_test.dto.TestDto" parameterType="com.example.api_db_test.dto.TestDto">
+		SELECT * FROM user_info WHERE name = #{name}
+	</select>
+	
+	<insert id="insert" parameterType="com.example.api_db_test.dto.TestDto">
+		INSERT INTO user_info (name, age) VALUES (#{name}, #{age})
+	</insert>
+	
+	<update id="update" parameterType="com.example.api_db_test.dto.TestDto">
+		UPDATE user_info SET age = #{age} WHERE name = #{name}
+	</update>
+	
+	<delete id="delete" parameterType="com.example.api_db_test.dto.TestDto">
+		DELETE FROM user_info WHERE name = #{name} and age = #{age};
+	</delete>
+	
+</mapper>
