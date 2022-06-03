@@ -55,10 +55,12 @@ public class TestServiceImpl implements TestService {
 		String re;
 		
 		result = mapper.update(dto);
-		if(result != 1) {
+		if(result == 0) {
 			re = "update fail";
-		} else {
+		} else if(result == 1) {
 			re = "update success";
+		} else {
+			re = "multiple update success";
 		}
 		
 		return re;
@@ -70,10 +72,12 @@ public class TestServiceImpl implements TestService {
 		String re;
 		
 		result = mapper.delete(dto);
-		if(result != 1) {
+		if(result == 0) {
 			re = "delete fail";
-		} else {
+		} else if(result == 1){
 			re = "delete success";
+		} else {
+			re = "multiple delete success";
 		}
 		
 		return re;
